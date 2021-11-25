@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #f3f4f5;
+        }
+
+        .game-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 100px;
+            gap: 30px;
+        }
+
+        .character-list {
+            list-style: none;
+            display: flex;
+            gap: 48px;
+            padding: 30px 0;
+        }
+
+        .character-border {
+            border: 3px solid #868e96;
+            border-radius: 5px;
+            width: 60px;
+            text-align: center;
+            box-shadow: 0 0 5px 1px #36393c;
+        }
+
+        .character {
+            background-color: antiquewhite;
+            animation: displayChar;
+            font-size: 50px;
+            padding: 10px;
+            opacity: 0;
+            transform: rotateY(150deg);
+            transition: all 2s;
+        }
+
+        .card-container {
+            border: 3px solid;
+            border-radius: 5px;
+            width: 300px;
+            margin: auto;
+        }
+
+        .card-text {
+            padding: 20px 30px 30px;
+            font-size: 21px;
+        }
+
+        .card-text-type {
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .card-text-eng {
+            margin-bottom: 20px;
+        }
+
+        .key-list {
+            margin-top: 30px;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+        }
+
+        .key {
+            padding: 20px;
+            background-color: #adb5bd;
+            font-size: 20px;
+            color: #212529;
+        }
+
+        .key:hover,
+        .key:active {
+            background-color: #868e96;
+        }
+
+        .appear {
+            opacity: 1;
+            transform: rotateY(0);
+        }
+
+        .advertise-title {
+
+            text-align: center;
+            width: 500px;
+            padding: 50px 0;
+            font-size: 32px;
+            color: white;
+            background-color: #800000;
+            border-radius: 10px;
+            transition: all 1.2s;
+            box-shadow: 0 0 5px 1px #36393c;
+        }
+
+        .btn--continute {
+            font-size: 20px;
+            background-color: #36393c;
+            color: white;
+            border: none;
+            width: 200px;
+            padding: 30px 0;
+            box-shadow: 0 0 5px 1px #36393c;
+        }
+
+        .advertises {
+            transition: all 1s;
+            text-align: center;
+            opacity: 0;
+        }
+
+        .open {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-container">
+        <div>
+            <ul class="character-list">
+
+            </ul>
+
+            <div class="card-container">
+                <div class="card-img">
+                    <img class="img" src="" alt="" width="100%">
+                </div>
+                <div class="card-text">
+                    <div class="card-text-type">
+
+                    </div>
+                    <div class="card-text-eng"> A long, curved fruit with a yellow skin and soft, sweet, white flesh
+                        inside
+                    </div>
+                    <div class="card-text-VN">Quả dài, cong, có vỏ màu vàng, bên trong mềm, ngọt, màu trắng</div>
+                </div>
+            </div>
+
+            <div class="key-container">
+                <ul class="key-list">
+
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="advertises">
+                <h3 class="advertise-title">YOU WIN</h3>
+                <button class="btn--continute">Continute</button>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
