@@ -6,6 +6,21 @@ const flights =
     '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+let openingHours = {
+    thu: {
+        open: 12,
+        close: 22,
+    },
+    fri: {
+        open: 11,
+        close: 23,
+    },
+    sat: {
+        open: 0, // Open 24 hours
+        close: 24,
+    },
+};
+
 const restaurant = {
     name: 'Classico Italiano',
     location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -17,20 +32,7 @@ const restaurant = {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     },
 
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0, // Open 24 hours
-            close: 24,
-        },
-    },
+    openingHours,
 };
 /*-------    OR      -------------- */
 console.log(3 || "three");
@@ -78,4 +80,42 @@ restaurant.numGuests = 0;
 let guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);  //10; 
 
+//**************************************************************************************************************************************************** */
+//                                                                        I. Optional Chaining
+//**************************************************************************************************************************************************** */
 
+
+
+
+// Old way
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+    console.log(restaurant.openingHours.mon);
+}
+
+// 1.Use Optional Chaining: 
+console.log(restaurant.openingHours?.mon?.open);
+
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (let day of days) {
+    const open = openingHours?.[day]?.open ?? 'closed';
+    console.log(day + ": " + open);
+}
+
+restaurant.order?.(0, 1) ?? "method doesn't exist";
+
+
+// 2.
+const volcabularies = [
+    { name: "hello", type: "noun" },
+    { name: "mouse", type: "noun" },
+    { name: "angry" }
+]
+
+console.log(volcabularies[2]?.type ?? "This array is empty");
+
+
+const entries = Object.entries(openingHours);
+for (let [key, { open: on, close: off }] of entries) {
+    console.log(on, off);
+}

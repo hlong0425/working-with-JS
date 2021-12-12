@@ -2,12 +2,6 @@
 We're building a football betting app (soccer for my American friends 😅)!
 Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
 
-
-
-
-
-
-
 */
 
 const game = {
@@ -96,8 +90,40 @@ GOOD LUCK 😀 */
 team1 < team2 && console.log("team 1 likely to win");
 team2 < team2 && console.log("team 2 likely to win");
 
-
-for (let [index, player] of players1.entries()) {
-    console.log(index + "," + player);
+for ([key, value] of Object.entries(game.odds)) {
+    const teamStr = key === "x" ? "draw" : game[key];
+    console.log(teamStr, value)
 }
+
+const rest = new Map()
+    .set('open', 11)
+    .set('close', 23)
+    .set(true, "Open door")
+    .set(false, "Close door")
+    .set(document.querySelector('h1'), 'Heading');
+const time = 11;
+let decided = rest.get(rest.get('open') === time);
+console.log(rest);
+
+let question = {
+    question: "Do you have lunch",
+    1: "Yes",
+    2: "No",
+    correct: 2,
+    true: "Go to eat",
+    false: "Play game"
+}
+
+// question = Object.keys(question).map(e => [e, question[e]]);
+// console.log(question);
+
+let questionArr = Object.entries(question);
+let questionMap = new Map(questionArr);
+
+let answer = Number(prompt("Enter your answer"));
+console.log(answer);
+console.log(questionMap.get('correct'));
+let total = questionMap.get(answer === Number(questionMap.get('correct')));
+console.log(questionMap);
+
 
